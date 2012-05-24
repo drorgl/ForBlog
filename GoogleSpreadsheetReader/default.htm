@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+
+
+
+
+ <div>
+     <script src="Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+     <script src="Scripts/google-spreadsheet.js" type="text/javascript"></script>
+     <script src="Scripts/google-spreadsheet-parser.js" type="text/javascript"></script>
+     <script src="http://code.highcharts.com/highcharts.js"></script>
+
+     <div id="readContainer"></div>
+     <div id="writeContainer"></div>
+
+    <script type="text/javascript">
+
+
+        //container: div container
+        //type: 'line' for example
+        //title: 'Dictionary Benchmarks'
+        //categories: array of x-graph
+        //ytitle: y graph title
+        function DrawChart(container, type, title, categories, ytitle, series)
+        {
+            var chart = new Highcharts.Chart({
+                chart: {
+                    renderTo: container,
+                    type: type,
+                    marginRight: 130,
+                    marginBottom: 25
+                },
+                title: {
+                    text: title,
+                    x: -20 //center
+                },
+                //                subtitle: {
+                //                    text: 'Source: WorldClimate.com',
+                //                    x: -20
+                //                },
+                xAxis: {
+                    categories: categories
+                },
+                yAxis: {
+                    title: {
+                        text: ytitle
+                    },
+                    plotLines: [{
+                        value: 0,
+                        width: 1,
+                        color: '#808080'
+                    }]
+                },
+                tooltip: {
+                    formatter: function ()
+                    {
+                        return '<b>' + this.series.name + '</b><br/>' +
+					this.x + ': ' + this.y + '';
+                    }
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'top',
+                    x: -10,
+                    y: 100,
+                    borderWidth: 0
+                },
+                series: series
+            });
+            return chart;
+        }
+
+
+        function ChartFromDictionaryData(container,sparser, rows, title, ytitle)
+        {
+
+            //need to do read / write / only
+
+            //get all dictionary types
+            var serieslist = sparser.DistinctByColumn(rows, "Dictionary");
+            delete serieslist["Dictionary"];
+
+            //get all threads
+            var threads = sparser.DistinctByColumn(rows, "Threads");
+            delete threads["Threads"];
+
+            //highcharts categories 
+            var categories = [];
+            for (var thread in threads)
+            {
+                categories.push(parseInt(thread));
+            }
+            categories.sort(function (a, b) { return a - b; });
+
+
+            //foreach dictionary, get all rows, order by threads, get timing
+
+            var highchartseries = [];
+            for (var series in serieslist)
+            {
+                var newseries = {};
+                newseries.name = series;
+                newseries.data = [];
+                var rowdata = sparser.FilterByColumn(rows, "Dictionary", series);
+                for (var thread in threads)
+                {
+                    var rowvalue = parseInt(sparser.GetValue(sparser.FilterByColumn(rowdata, "Threads", thread), "Time"));
+                    newseries.data.push(rowvalue);
+                }
+                highchartseries.push(newseries);
+            }
+            DrawChart(container, "line", title, categories, ytitle, highchartseries);
+
+        }
+
+
+
+        localStorage.clear();
+        var url = "https://docs.google.com/spreadsheet/pub?key=0Akqqf0SS9IbJdFVuZ0hzQnNKcFVFeGJkTzRHdWhYRVE&output=html";
+        var googleSpreadsheet = new GoogleSpreadsheet();
+        googleSpreadsheet.url(url);
+        googleSpreadsheet.load(function (result)
+        {
+            try
+            {
+                var sparser = new GoogleSpreadsheetParser(result);
+
+                var readrows = sparser.FilterByColumn(sparser.FilterByColumn(sparser.GetAllRows(), "Read", "TRUE"), "Write", "FALSE");
+                var writerows = sparser.FilterByColumn(sparser.FilterByColumn(sparser.GetAllRows(), "Read", "FALSE"), "Write", "TRUE");
+
+                ChartFromDictionaryData('readContainer',sparser, readrows, "Dictionary Benchmarks - Read", "Time (ms) per 1 million operations");
+                ChartFromDictionaryData('writeContainer',sparser, writerows, "Dictionary Benchmarks - Write", "Time (ms) per 1 million operations");
+
+                //$('#results').html(JSON.stringify(result).replace(/,/g, ",\n"));
+            } catch (e)
+            {
+                alert(e);
+            }
+        });
+    </script>
+    
+    <div id="results"></div>
+
+    </div>
+
+  
+
+
+
+
+
+</body>
+</html>
