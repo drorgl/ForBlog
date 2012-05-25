@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{95CAF4E7-ADA0-471F-9930-C0F252D92368}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Ariadne</RootNamespace>
+    <AssemblyName>Ariadne</AssemblyName>
+    <CodePage>65001</CodePage>
+    <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
+    <AllowUnsafeBlocks>False</AllowUnsafeBlocks>
+    <NoStdLib>False</NoStdLib>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <RunCodeAnalysis>False</RunCodeAnalysis>
+    <CodeAnalysisRules>-Microsoft.Design#CA1000;-Microsoft.Design#CA1021;-Microsoft.Design#CA1034;-Microsoft.Naming#CA1704</CodeAnalysisRules>
+    <SourceAnalysisOverrideSettingsFile>d:\Users\Jon\AppData\Roaming\ICSharpCode\SharpDevelop4\Settings.SourceAnalysis</SourceAnalysisOverrideSettingsFile>
+    <CheckForOverflowUnderflow>False</CheckForOverflowUnderflow>
+    <RunSourceAnalysis>False</RunSourceAnalysis>
+    <RegisterForComInterop>False</RegisterForComInterop>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+    <BaseAddress>9633792</BaseAddress>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <FileAlignment>4096</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <StartAction>Project</StartAction>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG</DefineConstants>
+    <DebugType>Full</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <Optimize>true</Optimize>
+    <DebugType>None</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <DocumentationFile>bin\Release\Ariadne.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Collections\LLQueue.cs" />
+    <Compile Include="Collections\LLStack.cs" />
+    <Compile Include="Collections\ThreadSafeDictionary.cs" />
+    <Compile Include="Collections\ThreadSafeSet.cs" />
+    <Compile Include="Collections\ReferenceEqualityComparer.cs" />
+    <Compile Include="Counter.cs" />
+    <Compile Include="ThreadSafeAtomizer.cs" />
+    <Compile Include="Pool.cs" />
+    <Compile Include="SharedInt.cs" />
+    <Compile Include="AssemblyInfo.cs">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Compile>
+    <Compile Include="InternalHelpers.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="doc" />
+    <Folder Include="Collections" />
+    <Folder Include="Resources" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\resources.resx">
+      <LogicalName>Ariadne.resources</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="doc\Ariadne.content" />
+    <None Include="doc\atomicity.aml" />
+    <None Include="EUPL-1.1.txt" />
+    <None Include="README.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

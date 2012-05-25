@@ -1,0 +1,13 @@
+
+/obj
+/bin
+*.user
+*.log
+*.pidb
+*.userprefs
+/NUnitTests/PartCover
+/NUnitTests/bin
+/NUnitTests/obj
+/NUnitTests/test-results
+/Ariadne.shfbproj_Jon
+/Help
