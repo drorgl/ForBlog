@@ -53,6 +53,7 @@
     <Content Include="default.htm" />
     <Content Include="Scripts\google-spreadsheet-parser.js" />
     <Content Include="Scripts\google-spreadsheet.js" />
+    <Content Include="stringFormatBenchmarks.htm" />
     <Content Include="Styles\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
