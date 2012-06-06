@@ -42,7 +42,7 @@ namespace XmlDemo
         }
 
         /// <summary>
-        /// Convets XAttibute's value to byte array from base64 encoded string
+        /// Converts XAttibute's value to byte array from base64 encoded string
         /// </summary>
         /// <param name="xattribute">XAttribute object</param>
         /// <returns>byte array if successful, null if not</returns>
@@ -55,7 +55,7 @@ namespace XmlDemo
         }
 
         /// <summary>
-        /// Convets XElement's value to byte array from base64 encoded string
+        /// Converts XElement's value to byte array from base64 encoded string
         /// </summary>
         /// <param name="xelement">XElement object</param>
         /// <returns>byte array if successful, null if not</returns>
