@@ -38,7 +38,7 @@ namespace XmlDemo
             if (!typeof(T).IsEnum)
                 throw new ArgumentException("T must be an enum");
 
-            return (T)((xelement == null || (string.IsNullOrEmpty(xelement.Value)))  ? defaultValue : Enum.Parse(typeof(T), xelement.Value));
+            return (T)((xelement == null || (string.IsNullOrEmpty(xelement.Value))) ? defaultValue : Enum.Parse(typeof(T), xelement.Value));
         }
 
         /// <summary>

@@ -8,6 +8,13 @@ using System.Xml.Linq;
 
 namespace XmlDemo
 {
+    public enum TestEnum
+    {
+        val1,
+        val2,
+        val3
+    }
+
     /// <summary>
     /// Demo for various methods of reading and writing XML in C#
     /// </summary>
@@ -182,6 +189,47 @@ namespace XmlDemo
             }
 
             return output.ToString();
+        }
+
+
+        public static void TestExtensions()
+        {
+            //test extensions
+
+            //test xelement ToEnum
+            XElement xelement = new XElement("TestElementEnum", TestEnum.val2);
+            var enumback = xelement.ToEnum<TestEnum>(TestEnum.val1);
+            if (enumback != TestEnum.val2)
+                throw new Exception("Failed to verify XElement.ToEnum");
+
+            //test xattribute ToEnum
+            XAttribute xattribute = new XAttribute("TestAttributeEnum", TestEnum.val3);
+            var aenumback = xattribute.ToEnum<TestEnum>(TestEnum.val1);
+            if (aenumback != TestEnum.val3)
+                throw new Exception("Failed to verify XAttribute.ToEnum");
+
+
+
+            //test byte array
+            byte[] array = new byte[8];
+            var random = new Random();
+            random.NextBytes(array);
+
+            //test xelement ToByteArray
+            xelement = new XElement("TestByteArray", Convert.ToBase64String(array));
+            var arrayback = xelement.ToByteArray();
+
+            if (!arrayback.SequenceEqual(array))
+                throw new Exception("Failed to verify XElement.ToByteArray");
+
+
+            //test xattribute ToByteArray
+            xattribute = new XAttribute("TestByteArray", Convert.ToBase64String(array));
+            arrayback = xattribute.ToByteArray();
+
+            if (!arrayback.SequenceEqual(array))
+                throw new Exception("Failed to verify XAttribute.ToByteArray");
+
         }
     }
 }

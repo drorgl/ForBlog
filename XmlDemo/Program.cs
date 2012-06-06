@@ -5,11 +5,15 @@ using System.Text;
 using System.Xml;
 using System.IO;
 using System.Diagnostics;
+using System.Xml.Linq;
 
 namespace XmlDemo
 {
     class Program
     {
+
+        
+
         static void Main(string[] args)
         {
             int iterations = 10000;
@@ -72,6 +76,11 @@ namespace XmlDemo
             sw.Stop();
             Console.WriteLine("{0} iterations took {1}ms", iterations, sw.ElapsedMilliseconds);
 
+
+
+            XmlDemo.TestExtensions();
+
+            
         }
     }
 }
