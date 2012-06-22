@@ -24,3 +24,7 @@
 /XmlDemo/bin
 /XmlDemo/obj
 /XmlDemo/XmlDemo.suo
+/Timesheet/obj
+/Timesheet/AutoRegisterTimesheet.csproj.user
+/Timesheet/bin
+/Timesheet/AutoRegisterTimesheet.suo
