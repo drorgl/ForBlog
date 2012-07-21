@@ -180,7 +180,6 @@ namespace ChatMessages
                 }
                 else
                 {
-                    Thread.Yield();
                     Thread.Sleep(1);
                 }
 
@@ -208,7 +207,6 @@ namespace ChatMessages
 
                     if (readbytes == 0)
                     {
-                        Thread.Yield();
                         Thread.Sleep(1);
                     }
                 }

@@ -91,8 +91,7 @@ namespace ChatMessages
                 }
                 else
                 {
-                    Thread.Yield();
-                    Thread.Sleep(0);
+                    Thread.Sleep(1);
                 }
             }
         }

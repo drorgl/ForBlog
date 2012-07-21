@@ -264,7 +264,6 @@ namespace ChatMessages
 
                 if ((copylen == 0) && (bytesleft > 0))
                 {
-                    Thread.Yield();
                     Thread.Sleep(1);
                 }
             } while (bytesleft > 0);
