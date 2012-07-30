@@ -36,7 +36,7 @@ namespace ImageGenerator.Models
                 filecontents = file.InputStream;
             }
 
-            Bitmap uploadedImage = new Bitmap(200, 200);
+            Bitmap uploadedImage = null;
 
             //check valid extensions
             if (!string.IsNullOrEmpty(filename))
@@ -53,6 +53,7 @@ namespace ImageGenerator.Models
             //if there's an error, draw it on the image
             if (!string.IsNullOrEmpty(error))
             {
+                uploadedImage = new Bitmap(200, 200);
                 var g = Graphics.FromImage(uploadedImage);
                 g.DrawString(error, new Font("Arial", 8), new SolidBrush(Color.Red), new PointF(1, 1));
             }
