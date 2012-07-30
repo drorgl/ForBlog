@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form action="/Home/Process" enctype="multipart/form-data" method="post" id="frmMain">
+
+<h2>Image Creator</h2>
+
+
+This demo will take an image you send + text and combine them to a new image on the fly.
+
+<br />
+
+Select File:
+<input type="file" name="file" />
+
+<br />
+
+Text:
+<input type="text" name="text" />
+
+<br />
+
+<input type="submit" value="submit" />
+</form>
