@@ -1,0 +1,19 @@
+﻿@using RazorTemplateDemo.AppCode;
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+Hello world.
+
+<br />
+
+@Templating.Render("Hello, @Model.Name, trust: @Model.GetTrustLevel", new RazorTemplateDemo.Models.SimpleModel(), null)
+
+<br />
+@Templating.Render("hello 1 @DateTime.Now ", null, null)
+<br />
+@Templating.Render("hello 1 @DateTime.UtcNow ", null, null)
+
