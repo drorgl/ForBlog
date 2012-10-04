@@ -74,6 +74,9 @@ namespace ToTraceString
 
             Console.WriteLine("ToTraceString()");
             Console.WriteLine(query.ToTraceString());
+
+            Console.WriteLine("No Parameters ToSqlString()");
+            Console.WriteLine(se.People.ToSqlString());
         }
 
      

@@ -41,31 +41,37 @@ namespace ToTraceString
             ObjectQuery<T> objectQuery = query as ObjectQuery<T>;
             var sqlquery = objectQuery.ToTraceString();
 
-            //create sql parameter for each parameter
-            List<string> parameters = new List<string>();
-            List<string> values = new List<string>();
-            foreach (var p in objectQuery.Parameters)
-            {
-                //get sqldbtype
-                parameters.Add(string.Format("@{0} {1}", p.Name, GetDbType(p.Value)));
-                //get sql values for each parameter
-                values.Add(string.Format("@{0} = {1}", p.Name, GetDbValue(p.Value)));
-            }
-
-            //create a list of parameters with sql type
-            StringBuilder retval = new StringBuilder();
-            retval.Append("sp_executesql ");
-            retval.AppendFormat("@statement = N'{0}'", sqlquery);
 
             //if there are parameters, first add parameter types, then the parameter values.
-            if (parameters.Count > 0)
+            if (objectQuery.Parameters.Count() > 0)
             {
+                //create a list of parameters with sql type
+                StringBuilder retval = new StringBuilder();
+
+                retval.Append("sp_executesql ");
+                retval.AppendFormat("@statement = N'{0}'", sqlquery);
+
+                //create sql parameter for each parameter
+                List<string> parameters = new List<string>();
+                List<string> values = new List<string>();
+                foreach (var p in objectQuery.Parameters)
+                {
+                    //get sqldbtype
+                    parameters.Add(string.Format("@{0} {1}", p.Name, GetDbType(p.Value)));
+                    //get sql values for each parameter
+                    values.Add(string.Format("@{0} = {1}", p.Name, GetDbValue(p.Value))); 
+                }
+
                 retval.AppendFormat(", @parameters = N'{0}'", string.Join(", ", parameters.ToArray()));
                 retval.Append(", ");
                 retval.Append(string.Join(", ", values.ToArray()));
-            }
 
-            return retval.ToString();
+                return retval.ToString();
+            }
+            else
+            {
+                return sqlquery;
+            }
         }
 
         /// <summary>
