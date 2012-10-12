@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServiceDemo" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="WSHttpBinding_IServiceDemo_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8732/Design_Time_Addresses/WCFServer.Services/ServiceDemo/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8732/Design_Time_Addresses/WCFServer.Services/ServiceDemo/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8732/Design_Time_Addresses/WCFServer.Services/ServiceDemo/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCFServer.ErrorHandling" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServiceDemo_DoWork_InputMessage">
+    <wsdl:part name="parameters" element="tns:DoWork" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDemo_DoWork_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DoWorkResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDemo_ThrowException_InputMessage">
+    <wsdl:part name="parameters" element="tns:ThrowException" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDemo_ThrowException_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ThrowExceptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDemo_ThrowCustomException_InputMessage">
+    <wsdl:part name="parameters" element="tns:ThrowCustomException" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDemo_ThrowCustomException_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ThrowCustomExceptionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceDemo_ThrowCustomException_CustomFaultFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/WCFServer.ErrorHandling" name="detail" element="q1:CustomFault" />
+  </wsdl:message>
+  <wsdl:portType name="IServiceDemo">
+    <wsdl:operation name="DoWork">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDemo/DoWork" message="tns:IServiceDemo_DoWork_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDemo/DoWorkResponse" message="tns:IServiceDemo_DoWork_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ThrowException">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDemo/ThrowException" message="tns:IServiceDemo_ThrowException_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDemo/ThrowExceptionResponse" message="tns:IServiceDemo_ThrowException_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ThrowCustomException">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceDemo/ThrowCustomException" message="tns:IServiceDemo_ThrowCustomException_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceDemo/ThrowCustomExceptionResponse" message="tns:IServiceDemo_ThrowCustomException_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IServiceDemo/ThrowCustomExceptionCustomFaultFault" name="CustomFaultFault" message="tns:IServiceDemo_ThrowCustomException_CustomFaultFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WSHttpBinding_IServiceDemo" type="tns:IServiceDemo">
+    <wsp:PolicyReference URI="#WSHttpBinding_IServiceDemo_policy" />
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="DoWork">
+      <soap12:operation soapAction="http://tempuri.org/IServiceDemo/DoWork" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ThrowException">
+      <soap12:operation soapAction="http://tempuri.org/IServiceDemo/ThrowException" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ThrowCustomException">
+      <soap12:operation soapAction="http://tempuri.org/IServiceDemo/ThrowCustomException" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="CustomFaultFault">
+        <soap12:fault use="literal" name="CustomFaultFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceDemo">
+    <wsdl:port name="WSHttpBinding_IServiceDemo" binding="tns:WSHttpBinding_IServiceDemo">
+      <soap12:address location="http://localhost:8732/Design_Time_Addresses/WCFServer.Services/ServiceDemo/" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>http://localhost:8732/Design_Time_Addresses/WCFServer.Services/ServiceDemo/</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Dns>sslstreamtest</Dns>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

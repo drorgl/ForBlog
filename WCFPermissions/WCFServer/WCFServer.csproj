@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A43F444C-5F35-47E4-A0ED-AA46D37711AE}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WCFServer</RootNamespace>
+    <AssemblyName>WCFServer</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CustomBehaviorAttribute.cs" />
+    <Compile Include="CustomConfigurationSection.cs" />
+    <Compile Include="CustomConfigurationSectionBehavior.cs" />
+    <Compile Include="DAL\Product.cs" />
+    <Compile Include="DAL\User.cs" />
+    <Compile Include="DAL\UserStore.cs" />
+    <Compile Include="ErrorHandling\CustomErrorAttribute.cs" />
+    <Compile Include="ErrorHandling\CustomErrorHandler.cs" />
+    <Compile Include="ErrorHandling\CustomFault.cs" />
+    <Compile Include="Helper.cs" />
+    <Compile Include="Logging\LoggingBehavior.cs" />
+    <Compile Include="Logging\LoggingConfigurationSection.cs" />
+    <Compile Include="Logging\LoggingMessageInspector.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\Claims\CheckClaim.cs" />
+    <Compile Include="Security\Claims\CheckClaimAttribute.cs" />
+    <Compile Include="Security\Claims\CheckClaimInvoker.cs" />
+    <Compile Include="Security\CustomAuthorizationManager.cs" />
+    <Compile Include="Security\Certificate\CustomCertificateAuthorizationPolicy.cs" />
+    <Compile Include="Security\CustomSecurityCheck\CustomSecurityCheckAttribute.cs" />
+    <Compile Include="Security\CustomSecurityCheck\CustomSecurityCheckInvoker.cs" />
+    <Compile Include="Security\Simple\SimpleAuthorizationPolicy.cs" />
+    <Compile Include="Security\Simple\SimplePrincipal.cs" />
+    <Compile Include="Security\UserNamePassword\CustomUsernameAuthorizationPolicy.cs" />
+    <Compile Include="Security\Certificate\CustomCertificateValidator.cs" />
+    <Compile Include="Security\UserNamePassword\CustomUsernameValidator.cs" />
+    <Compile Include="Security\CustomAuthenticationManager.cs" />
+    <Compile Include="Services\AA\AAServiceDemo.cs" />
+    <Compile Include="Services\Certificate\CertificateServiceDemo.cs" />
+    <Compile Include="Services\AA\IAAServiceDemo.cs" />
+    <Compile Include="Services\Certificate\ICertificateServiceDemo.cs" />
+    <Compile Include="Services\Invoker\IInvokerServiceDemo.cs" />
+    <Compile Include="Services\Invoker\InvokerServiceDemo.cs" />
+    <Compile Include="Services\Simple\IServiceDemo.cs" />
+    <Compile Include="Services\SimpleUsername\ISimpleUsernameServiceDemo.cs" />
+    <Compile Include="Services\Simple\ServiceDemo.cs" />
+    <Compile Include="Services\SimpleUsername\SimpleUsernameServiceDemo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

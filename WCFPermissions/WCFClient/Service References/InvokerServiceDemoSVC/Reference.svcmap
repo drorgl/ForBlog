@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="962ad1bf-c170-4ed5-80c1-f5c805191264" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8732/Design_Time_Addresses/WCFServer.Services/InvokerServiceDemo/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="925cef5d-963e-476b-acb2-43c63876e0e2" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/WCFServer.Services/InvokerServiceDemo/?disco" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="63011bdc-7a46-49a3-946a-ee2471f520d2" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/WCFServer.Services/InvokerServiceDemo/?xsd=xsd0" />
+    <MetadataFile FileName="InvokerServiceDemo.wsdl" MetadataType="Wsdl" ID="bdb9d7b1-af37-4cff-8652-54f8a75e0fb9" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/WCFServer.Services/InvokerServiceDemo/?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

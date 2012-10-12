@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3cba40eb-99fc-479a-b917-57f7b3bc79e5" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8732/Design_Time_Addresses/WCFServer.Services/SimpleUsernameServiceDemo/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="1b217214-7b19-4aac-a59f-96077f53dd3b" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/WCFServer.Services/SimpleUsernameServiceDemo/?disco" />
+    <MetadataFile FileName="SimpleUsernameServiceDemo.wsdl" MetadataType="Wsdl" ID="af1c154b-e886-4cba-9a1e-101102bf32e8" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/WCFServer.Services/SimpleUsernameServiceDemo/?wsdl" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="1b429002-6d64-4b6f-88b1-b6127cf08058" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/WCFServer.Services/SimpleUsernameServiceDemo/?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

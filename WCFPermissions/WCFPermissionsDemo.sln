@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFClient", "WCFClient\WCFClient.csproj", "{99AAE391-2BB0-462B-BB4F-221BF69BDF2B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WCFServer", "WCFServer\WCFServer.csproj", "{A43F444C-5F35-47E4-A0ED-AA46D37711AE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{99AAE391-2BB0-462B-BB4F-221BF69BDF2B}.Debug|x86.ActiveCfg = Debug|x86
+		{99AAE391-2BB0-462B-BB4F-221BF69BDF2B}.Debug|x86.Build.0 = Debug|x86
+		{99AAE391-2BB0-462B-BB4F-221BF69BDF2B}.Release|x86.ActiveCfg = Release|x86
+		{99AAE391-2BB0-462B-BB4F-221BF69BDF2B}.Release|x86.Build.0 = Release|x86
+		{A43F444C-5F35-47E4-A0ED-AA46D37711AE}.Debug|x86.ActiveCfg = Debug|x86
+		{A43F444C-5F35-47E4-A0ED-AA46D37711AE}.Debug|x86.Build.0 = Debug|x86
+		{A43F444C-5F35-47E4-A0ED-AA46D37711AE}.Release|x86.ActiveCfg = Release|x86
+		{A43F444C-5F35-47E4-A0ED-AA46D37711AE}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

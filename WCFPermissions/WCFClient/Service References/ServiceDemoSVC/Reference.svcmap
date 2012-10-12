@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ab349e27-0b7b-4a27-b928-75246f467dc5" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8732/Design_Time_Addresses/WCFServer.Services/ServiceDemo/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="a07e7111-6d01-4489-a376-63af492e14fc" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/WCFServer.Services/ServiceDemo/?xsd=xsd0" />
+    <MetadataFile FileName="ServiceDemo.wsdl" MetadataType="Wsdl" ID="91353c88-11ce-4a6c-9897-e592ca576095" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/WCFServer.Services/ServiceDemo/?wsdl" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="1c8267d8-442e-4d98-bd01-ea21a978bc39" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/WCFServer.Services/ServiceDemo/?xsd=xsd2" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="301d92f7-fe88-411e-9e22-a959e5d1b689" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/WCFServer.Services/ServiceDemo/?xsd=xsd1" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="8adce966-9ae7-4cfe-8e16-c89a11085bb9" SourceId="1" SourceUrl="http://localhost:8732/Design_Time_Addresses/WCFServer.Services/ServiceDemo/?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
