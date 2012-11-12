@@ -170,7 +170,7 @@ namespace DomainParsingTest
 
             //go over the rest of the parts and add them to the domain until we failed to find a 
             //match in the _domains HashSet, this means we've reached the domain.
-            for (int i = domainparts.Length-2; i > 0; i--)
+            for (int i = domainparts.Length-2; i >= 0; i--)
             {
                 if (!_domains.Contains("." + result))
                     break;

@@ -16,7 +16,8 @@ namespace DomainParsingTest
                 "www.google.co.uk",
                 "www.cisco.com",
                 "localhost",
-                "www.localhost"
+                "www.localhost",
+                "co.uk"
             };
 
             Stopwatch sw = Stopwatch.StartNew();
