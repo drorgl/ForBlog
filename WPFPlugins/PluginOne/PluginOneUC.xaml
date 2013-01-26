@@ -1,0 +1,15 @@
+﻿<UserControl x:Class="PluginOne.PluginOneUC"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="196" d:DesignWidth="466"
+             Width="Auto" Height="Auto"
+             MinHeight="300" MinWidth="500"
+             >
+    <Grid Height="Auto" Width="Auto">
+        <Label Content="Text" Height="28" HorizontalAlignment="Left" Margin="12,12,0,0" Name="label1" VerticalAlignment="Top" />
+        <TextBox Margin="12,46,12,16" Name="textboxData" Width="Auto" Height="Auto" />
+    </Grid>
+</UserControl>
