@@ -4,6 +4,7 @@ http://mikeymckay.github.com/google-spreadsheet-javascript/sample.html
 
 Changelog:
 2012-05-21 - Dror Gluska - Modified to return actual cells from spreadsheet instead of a list.
+2016-03-16 - Dror Gluska - Simplify the callback
 */
 var GoogleSpreadsheet, GoogleUrl;
 
@@ -39,28 +40,22 @@ GoogleSpreadsheet = (function ()
     function GoogleSpreadsheet() { }
     GoogleSpreadsheet.prototype.load = function (callback)
     {
-        var intervalId, jsonUrl, safetyCounter, url, waitUntilLoaded;
-        url = this.googleUrl.jsonCellsUrl + "&callback=GoogleSpreadsheet.callbackCells";
-        $('body').append("<script src='" + url + "'/>");
-        jsonUrl = this.jsonUrl;
-        safetyCounter = 0;
-        waitUntilLoaded = function ()
-        {
-            var result;
-            result = GoogleSpreadsheet.find({
-                jsonUrl: jsonUrl
-            });
-            if (safetyCounter++ > 20 || ((result != null) && (result.data != null)))
-            {
-                clearInterval(intervalId);
-                return callback(result);
+        url = this.googleUrl.jsonCellsUrl + "&callback=?";
+
+        $.ajax({
+            type: 'GET',
+            url: url,
+            async: false,
+            contentType: "application/json",
+            dataType: 'jsonp',
+            success: function (json) {
+                callback(GoogleSpreadsheet.processData(json))
+            },
+            error: function (e) {
+                console.log("Error retrieving google spreadsheet data",e);
             }
-        };
-        intervalId = setInterval(waitUntilLoaded, 200);
-        if (typeof result != "undefined" && result !== null)
-        {
-            return result;
-        }
+        });
+
     };
     GoogleSpreadsheet.prototype.url = function (url)
     {
@@ -77,93 +72,22 @@ GoogleSpreadsheet = (function ()
         this.jsonUrl = googleUrl.jsonUrl;
         return this.googleUrl = googleUrl;
     };
-    GoogleSpreadsheet.prototype.save = function ()
-    {
-        return localStorage["GoogleSpreadsheet." + this.type] = JSON.stringify(this);
-    };
     return GoogleSpreadsheet;
 })();
-GoogleSpreadsheet.bless = function (object)
-{
-    var key, result, value;
-    result = new GoogleSpreadsheet();
-    for (key in object)
-    {
-        value = object[key];
-        result[key] = value;
-    }
-    return result;
-};
-GoogleSpreadsheet.find = function (params)
-{
-    var item, itemObject, key, value, _i, _len;
-    try
-    {
-        for (item in localStorage)
-        {
-            if (item.match(/^GoogleSpreadsheet\./))
-            {
-                itemObject = JSON.parse(localStorage[item]);
-                for (key in params)
-                {
-                    value = params[key];
-                    if (itemObject[key] === value)
-                    {
-                        return GoogleSpreadsheet.bless(itemObject);
-                    }
-                }
-            }
-        }
-    } catch (error)
-    {
-        for (_i = 0, _len = localStorage.length; _i < _len; _i++)
-        {
-            item = localStorage[_i];
-            if (item.match(/^GoogleSpreadsheet\./))
-            {
-                itemObject = JSON.parse(localStorage[item]);
-                for (key in params)
-                {
-                    value = params[key];
-                    if (itemObject[key] === value)
-                    {
-                        return GoogleSpreadsheet.bless(itemObject);
-                    }
-                }
-            }
-        }
-    }
-    return null;
-};
-GoogleSpreadsheet.callbackCells = function (data)
+GoogleSpreadsheet.processData = function (data)
 {
     var cell, googleSpreadsheet, googleUrl;
-    googleUrl = new GoogleUrl(data.feed.id.$t);
-    googleSpreadsheet = GoogleSpreadsheet.find({
-        jsonUrl: googleUrl.jsonUrl
-    });
-    if (googleSpreadsheet === null)
-    {
-        googleSpreadsheet = new GoogleSpreadsheet();
-        googleSpreadsheet.googleUrl(googleUrl);
-    }
-    googleSpreadsheet.data = (function ()
-    {
-        var _i, _len, _ref, _results;
+    
+    var _i, _len, _ref, _results;
         _ref = data.feed.entry;
         _results = {};
         for (_i = 0, _len = _ref.length; _i < _len; _i++)
         {
             cell = _ref[_i];
-            //Dror Gluska - 2012-05-21
-            //_results.push(cell.content.$t);
             _results[cell.title.$t] = cell.content.$t;
         }
-        //return JSON.stringify(_results);
         return _results;
-    })();
-    googleSpreadsheet.save();
-    return googleSpreadsheet;
+  
 };
 /* TODO (Handle row based data)
 GoogleSpreadsheet.callbackList = (data) ->*/

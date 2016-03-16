@@ -3,7 +3,7 @@ GoogleSpreadsheetParse - parses results from google-spreadsheet.js into a workab
 
 Changelog:
 2012-05-21 - Dror Gluska - Basic parsing
-2012-05-22 - Dror Glusk - Basic filtering
+2012-05-22 - Dror Gluska - Basic filtering
 
 Usage:
 
@@ -61,7 +61,7 @@ GoogleSpreadsheetParser = (function ()
 
     function parsedoc()
     {
-        for (var key in jsondoc.data)
+        for (var key in jsondoc)
         {
             var column = key.replace(/[^a-z]/gi, "");
             var row = key.replace(/[^0-9]/gi, "");
@@ -77,7 +77,7 @@ GoogleSpreadsheetParser = (function ()
                 this.rowcount++;
             }
 
-            Rows[row][column] = jsondoc.data[key];
+            Rows[row][column] = jsondoc[key];
         }
     }
 
